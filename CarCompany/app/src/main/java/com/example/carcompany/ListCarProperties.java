@@ -11,10 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.carcompany.process.ListControl;
 import com.example.carcompany.process.Vehicle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ListCarProperties extends Activity {
 
@@ -30,7 +32,7 @@ public class ListCarProperties extends Activity {
 
         carList = (ListView) findViewById(R.id.listCarProperties);
 
-        ArrayList<ArrayList<String>> carResources = Vehicle.vehicleList;
+        ArrayList<Vehicle> carResources = ListControl.vehiculoLista;
 
 
         /*ArrayList<ArrayList<String>> matrix = new ArrayList<ArrayList<String>>();
@@ -49,7 +51,7 @@ public class ListCarProperties extends Activity {
         Vehicle.vehicleList.add(vector_3);*/
 
         try {
-            customizedListCar = new CustomizedListCar(this,carResources);
+            customizedListCar = new CustomizedListCar(this,ListControl.vehiculoLista);
 
             carList.setAdapter(customizedListCar);
             carList.setOnItemClickListener(listClick);

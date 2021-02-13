@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.JsonObject;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,7 +25,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class LastTemplate extends AppCompatActivity{
 
@@ -101,7 +99,7 @@ public class LastTemplate extends AppCompatActivity{
 
         ArrayList<String> valuesAdd = new ArrayList<String>();
 
-        valuesAdd = Vehicle.vehicleList.get(index);
+        valuesAdd = Vehicle.getVehicleList().get(index);
 
 
         fullOrder.setText(String.valueOf(index));
@@ -156,12 +154,12 @@ public class LastTemplate extends AppCompatActivity{
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(getApplicationContext(), "deleting...", Toast.LENGTH_LONG).show();
 
-                        if(Vehicle.vehicleList.size()<=1){
-                            Vehicle.vehicleList.remove(index);
+                        if(Vehicle.getVehicleList().size()<=1){
+                            Vehicle.getVehicleList().remove(index);
                             Intent intent = new Intent(LastTemplate.this, MainActivity.class);
                             startActivity(intent);
                         }else{
-                            Vehicle.vehicleList.remove(index);
+                            Vehicle.getVehicleList().remove(index);
                             Intent intent = new Intent(LastTemplate.this, ListCarProperties.class);
                             startActivity(intent);
                         }

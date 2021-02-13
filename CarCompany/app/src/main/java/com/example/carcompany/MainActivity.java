@@ -6,15 +6,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.carcompany.process.Credential;
+import com.example.carcompany.process.ListControl;
 import com.example.carcompany.process.Vehicle;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -31,10 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MaterialButton carPaint;
     MaterialButton carWashing;
     MaterialButton carMaintenance;
-
-
-    // initializing such constant
-    private static final Vehicle vehicle = new Vehicle();
     ActionBar actionBar;
 
     public void sendOnclickButton(View view){
@@ -62,17 +57,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String owLname = ownerLastname.getEditText().getText().toString();
                 String owCredential = ownerCredentials.getEditText().getText().toString();
 
-                vehicle.addToArray(plate, make,model,year,color, owName, owLname, owCredential, Vehicle.serviceType, Vehicle.imageName);
-                clearFields(carPlate, carMake, carModel,carYear, carColor, ownerName, ownerLastname, ownerCredentials);
-                Toast.makeText(MainActivity.this, "The fields was be saved successfully", Toast.LENGTH_SHORT).show();
+                if (credential.verificarCedula(owCredential)){
+                    //vehicle.addToArray(plate, make,model,year,color, owName, owLname, owCredential, Vehicle.serviceType, Vehicle.imageName);
+                    ListControl.vehiculoLista.add(new Vehicle(plate, make, model, year, color, owName, owLname, owCredential, Vehicle.getServiceType(), Vehicle.getImageName()));
+                    clearFields(carPlate, carMake, carModel,carYear, carColor, ownerName, ownerLastname, ownerCredentials);
+                    Toast.makeText(MainActivity.this, "Los campos fueron salvados satisfactoriamente", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, "Cedula incorrecta", Toast.LENGTH_SHORT).show();
+                }
             }else{
-                Toast.makeText(this, "The fields cannot be empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Los campos no pueden estar vacios", Toast.LENGTH_SHORT).show();
             }
 
 
         }catch (Exception e){
             e.printStackTrace();
-            Toast.makeText(MainActivity.this, "Error by: " +e.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Error en: " +e.toString(), Toast.LENGTH_LONG).show();
         }
 
 
@@ -82,14 +82,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent intent = new Intent(MainActivity.this,ListCarProperties.class);
         try {
-            if(Vehicle.vehicleList.size() > 0){
+            if(ListControl.vehiculoLista.size() > 0){
                 startActivity(intent);
             }else{
-                Toast.makeText(MainActivity.this, "cannot view the data because is already empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "No hay datos almacenados aún", Toast.LENGTH_SHORT).show();
             }
         }catch (Exception e){
             e.printStackTrace();
-            Toast.makeText(MainActivity.this, "Error by: "+ e.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Error: : "+ e.toString(), Toast.LENGTH_SHORT).show();
         }
 
 
@@ -127,23 +127,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.carWashing:
             carService.setImageResource(R.drawable.wash);
-            Vehicle.serviceType = "Car washing";
+            Vehicle.setServiceType("Car washing");
             break;
 
             case R.id.carMaintenance:
                 carService.setImageResource(R.drawable.maintenance_2);
-                Vehicle.serviceType = "Car maintenance";
+                Vehicle.setServiceType("Car maintenance");
                 break;
 
             case R.id.carPaint:
                 carService.setImageResource(R.drawable.paint_2);
-                Vehicle.serviceType = "Car paint";
+                Vehicle.setServiceType("Car paint");
                 break;
         }
     }
 
 
-
+    // limpia los campos después de haber hecho el guardado de datos
     public void clearFields(TextInputLayout carPlate, TextInputLayout carMake, TextInputLayout carModel,
                             TextInputLayout carYear, TextInputLayout carColor, TextInputLayout ownerName,
                             TextInputLayout ownerLastname, TextInputLayout ownerCredentials){
@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    // Verifica si estan vacíos o no los campos
     public boolean checkIsEmpty(TextInputLayout carPlate, TextInputLayout carMake, TextInputLayout carModel,
                                 TextInputLayout carYear, TextInputLayout carColor, TextInputLayout ownerName,
                                 TextInputLayout ownerLastname, TextInputLayout ownerCredentials){

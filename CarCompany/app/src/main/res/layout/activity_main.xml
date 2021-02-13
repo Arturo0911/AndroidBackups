@@ -47,7 +47,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Choose the service for you"
+                    android:text="Selecciona el servicio que desees"
                     android:textStyle="italic"
                     android:textSize="20dp"
 
@@ -66,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:textStyle="bold"
-                        android:text="WASHING"
+                        android:text="LAVADO"
                         android:textColor="@color/colorPrimaryDark"
                         style="?attr/borderlessButtonStyle"
                         />
@@ -74,7 +74,7 @@
                         android:id="@+id/carMaintenance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Maintenance"
+                        android:text="MANTENIMIENTO"
                         android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold"
                         style="?attr/borderlessButtonStyle"
@@ -85,7 +85,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold"
-                        android:text="Painting"
+                        android:text="PINTADO"
                         style="?attr/borderlessButtonStyle"
                         />
                 </LinearLayout>
@@ -106,7 +106,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:hint="input the car's plate"
+                android:hint="PLACA DEL CARRO"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -125,7 +125,7 @@
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15dp"
-                    android:hint="Input the  make"
+                    android:hint="Marca del carro"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginBottom="15dp"
-                    android:hint="Choose the model"
+                    android:hint="Modeo del carro"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -160,7 +160,7 @@
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15dp"
-                    android:hint="Choose the year"
+                    android:hint="Año de fabricación"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -175,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginBottom="15dp"
-                    android:hint="Choose the color"
+                    android:hint="Color del carro"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -190,7 +190,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:hint="Complete names"
+                android:hint="Nombres completos"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -204,7 +204,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:hint="Complete lastnames"
+                android:hint="Apellidos completos"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -218,7 +218,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:hint="Complete the credentials"
+                android:hint="Cédula de identidad"
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -244,7 +244,7 @@
                     android:onClick="sendOnclickButton"
                     android:textColor="@color/buttonsMain"
                     app:backgroundTint="@color/colorPrimaryDark"
-                    android:text="Send" />
+                    android:text="Enviar" />
 
                 <Button
                     android:id="@+id/viewListButton"
@@ -256,7 +256,7 @@
                     android:onClick="viewOnclickButton"
                     android:textColor="@color/buttonsMain"
                     app:backgroundTint="@color/colorPrimaryDark"
-                    android:text="view list" />
+                    android:text="Visualizar lista" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.carcompany.process.Vehicle;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -16,9 +18,9 @@ public class CustomizedListCar extends BaseAdapter {
 
     private Context context;
     private int layout;
-    private ArrayList<ArrayList<String>> carProperties;
+    private ArrayList<Vehicle> carProperties;
 
-    public CustomizedListCar(Context context, ArrayList<ArrayList<String>> carProperties){
+    public CustomizedListCar(Context context, ArrayList<Vehicle> carProperties){
 
         this.context = context;
         this.carProperties = carProperties;
@@ -63,16 +65,16 @@ public class CustomizedListCar extends BaseAdapter {
         * [[plate, make,model,year,color, owName, owLname, owCredential, Vehicle.serviceType, Vehicle.imageName]]
         * */
 
-        plateCar.setText("Plate: "+carProperties.get(position).get(0));
-        modelCar.setText(carProperties.get(position).get(2));
-        serviceCar.setText(carProperties.get(position).get(8));
+        plateCar.setText("Plate: "+carProperties.get(position).getPlaca());
+        modelCar.setText(carProperties.get(position).getModelo());
+        serviceCar.setText(carProperties.get(position).getTipoServicio());
         noOrder.setText("Order number "+String.valueOf(position +1));
 
 
 
-        if (carProperties.get(position).get(8).equals("Car washing")){
+        if (carProperties.get(position).getTipoServicio().equals("Car washing")){
             imageCustomized.setImageResource(R.drawable.washing);
-        }else if (carProperties.get(position).get(8).equals("Car maintenance")){
+        }else if (carProperties.get(position).getTipoServicio().equals("Car maintenance")){
             imageCustomized.setImageResource(R.drawable.repair);
         }else{
             imageCustomized.setImageResource(R.drawable.paint);
