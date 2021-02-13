@@ -132,21 +132,7 @@
                             android:textAppearance="?attr/textAppearanceBody2"
                             />
                     </LinearLayout>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/email"
-                        android:layout_width="350dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:hint="input your email"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textEmailAddress"
-                            />
-
-                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
                 <!-- Buttons -->

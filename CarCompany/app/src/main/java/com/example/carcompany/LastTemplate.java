@@ -18,6 +18,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 
+import com.example.carcompany.process.ListControl;
 import com.example.carcompany.process.Vehicle;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
@@ -52,24 +53,17 @@ public class LastTemplate extends AppCompatActivity{
 
     public void sendOnclickButton(View view){
 
-        String emailAddress = email.getEditText().getText().toString();
-        String url = "http://" + "10.0.2.2"+":"+4000+"/android";
         generateDialogOnConFirm();
 
-        if (!emailAddress.equals("")){
-
-            try {
-                RequestMethodPOST(fullName.getText().toString(), emailAddress,whichService.getText().toString(), url );
-                Toast.makeText(this, "email sended successfully", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LastTemplate.this, MainActivity.class);
-                startActivity(intent);
-            }catch (Exception e){
-                Toast.makeText(this, "Error by: "+e.toString(), Toast.LENGTH_SHORT).show();
-            }finally {
-                email.getEditText().setText("");
-            }
-        }else{
-            Toast.makeText(this, "the field email cannot be empty", Toast.LENGTH_SHORT).show();
+        try {
+            //RequestMethodPOST(fullName.getText().toString(), emailAddress,whichService.getText().toString(), url );
+            Toast.makeText(this, "email sended successfully", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LastTemplate.this, MainActivity.class);
+            startActivity(intent);
+        }catch (Exception e){
+            Toast.makeText(this, "Error by: "+e.toString(), Toast.LENGTH_SHORT).show();
+        }finally {
+            email.getEditText().setText("");
         }
 
     }
@@ -97,18 +91,18 @@ public class LastTemplate extends AppCompatActivity{
         Intent lastIntent = getIntent();
         int index = Integer.parseInt(lastIntent.getStringExtra("position"));
 
-        ArrayList<String> valuesAdd = new ArrayList<String>();
+        ArrayList<Vehicle> valuesAdd = ListControl.vehiculoLista;
 
-        valuesAdd = Vehicle.getVehicleList().get(index);
+        //valuesAdd = ListControl.vehiculoLista.get(index);
 
 
-        fullOrder.setText(String.valueOf(index));
-        whichService.setText(valuesAdd.get(8));
-        fullMake.setText("Make: "+valuesAdd.get(1));
-        fullModel.setText("Model: "+valuesAdd.get(2));
-        fullName.setText(valuesAdd.get(5)+" "+valuesAdd.get(6));
-        fullCredentials.setText(valuesAdd.get(7));
-        serviceDescription.setText("The plate car is "+valuesAdd.get(0)+".With this service you will have the best experience with us");
+        fullOrder.setText(String.valueOf(index+1));
+        whichService.setText(valuesAdd.get(index).getTipoServicio());
+        fullMake.setText("Make: "+valuesAdd.get(index).getMarca());
+        fullModel.setText("Model: "+valuesAdd.get(index).getModelo());
+        fullName.setText(valuesAdd.get(index).getClienteNombre()+" "+valuesAdd.get(index).getClienteApellido());
+        fullCredentials.setText(valuesAdd.get(index).getClienteCedula());
+        serviceDescription.setText("La placa del carro es: "+valuesAdd.get(index).getPlaca()+". Con nuestro servicio tendrás la mejor experienza");
 
         if(whichService.getText().toString().equals("Car washing")){
             finalImage.setImageResource(R.drawable.wash);
@@ -148,19 +142,19 @@ public class LastTemplate extends AppCompatActivity{
     private void generateDialogOnDelete(int index){
         AlertDialog.Builder builder = new AlertDialog.Builder(LastTemplate.this);
         builder.setTitle("Alert");
-        builder.setMessage("Are you sure to delete this order?")
+        builder.setMessage("¿Seguro que desea eliminar esta orden?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getApplicationContext(), "deleting...", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Borrando...", Toast.LENGTH_LONG).show();
 
-                        if(Vehicle.getVehicleList().size()<=1){
-                            Vehicle.getVehicleList().remove(index);
+                        if(ListControl.vehiculoLista.size()<=1){
+                            ListControl.vehiculoLista.remove(index);
                             Intent intent = new Intent(LastTemplate.this, MainActivity.class);
                             startActivity(intent);
                         }else{
-                            Vehicle.getVehicleList().remove(index);
-                            Intent intent = new Intent(LastTemplate.this, ListCarProperties.class);
+                            ListControl.vehiculoLista.remove(index);
+                            Intent intent = new Intent(LastTemplate.this, MainActivity.class);
                             startActivity(intent);
                         }
 
@@ -176,45 +170,5 @@ public class LastTemplate extends AppCompatActivity{
                 .setCancelable(false)
                 .show();
     }
-
-
-
-
-    public void RequestMethodPOST(String fullname , String email, String service, String url){
-
-        JSONObject jsonObject = new JSONObject();
-        try {
-
-            jsonObject.put("Fullname", fullname);
-            jsonObject.put("Email", email);
-            jsonObject.put("service",service);
-
-
-        }catch (Exception e ){
-            Toast.makeText(LastTemplate.this, "Error by: "+e.toString(), Toast.LENGTH_SHORT).show();
-        }
-
-        RequestQueue requestQueue = Volley.newRequestQueue(LastTemplate.this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.POST,
-                url,
-                jsonObject,
-
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Toast.makeText(LastTemplate.this, "response: "+response.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(LastTemplate.this, "this is my error: "+error.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-        requestQueue.add(jsonObjectRequest);
-    }
-
 
 }
