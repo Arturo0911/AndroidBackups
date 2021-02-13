@@ -13,10 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarCompany">
         <activity android:name=".Registro"></activity>
-        <activity android:name=".InternalStorage">
-
-        </activity>
-        <activity android:name=".ExternalStorage"></activity>
         <activity android:name=".Login" />
         <activity android:name=".LastTemplate" />
         <activity android:name=".Initializing">

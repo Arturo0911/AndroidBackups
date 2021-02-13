@@ -40,8 +40,6 @@ public class LastTemplate extends AppCompatActivity{
     private MaterialButton deleteOrder;
     private MaterialButton confirmOrder;
 
-    private TextInputLayout email;
-
     private ImageView finalImage;
 
     public void onDeleteOrder(View view){
@@ -62,10 +60,7 @@ public class LastTemplate extends AppCompatActivity{
             startActivity(intent);
         }catch (Exception e){
             Toast.makeText(this, "Error by: "+e.toString(), Toast.LENGTH_SHORT).show();
-        }finally {
-            email.getEditText().setText("");
         }
-
     }
 
 
@@ -84,9 +79,6 @@ public class LastTemplate extends AppCompatActivity{
         serviceDescription = (TextView)findViewById(R.id.serviceDescription);
         fullOrder = (TextView) findViewById(R.id.fullOrder);
         finalImage = (ImageView) findViewById(R.id.finalImage);
-
-        email = (TextInputLayout) findViewById(R.id.email);
-
 
         Intent lastIntent = getIntent();
         int index = Integer.parseInt(lastIntent.getStringExtra("position"));
