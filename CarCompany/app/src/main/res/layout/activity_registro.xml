@@ -6,4 +6,279 @@
     android:layout_height="match_parent"
     tools:context=".Registro">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Completa los datos en el formulario"
+                            android:textStyle="italic"
+                            android:textSize="20dp"
+
+                            />
+                    </LinearLayout>
+
+                    <!-- Buttons -->
+
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="30dp"
+                android:orientation="vertical">
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:hint="cedula del empleado"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/empleadoCedula"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:hint="nombres completos"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nombresEmpleado"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:hint="Apellidos completos"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:id="@+id/empleadoApellido"
+                            android:layout_height="wrap_content"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:hint="Correo electrónico"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/empleadoCorreo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:hint="Choose the color"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/empleadoCelular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:hint="usuario"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/empleadoUsuario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:hint="contraseña"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/empleadoClave"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:hint="Repetir contraseña"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/empleadoClave2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:hint="Latitud"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/empleadoLatitud"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:hint="Longitud"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/empleadoLongitud"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/obtenerCoordenadas"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:onClick="getLocation"
+                        android:text="Obtener latitud y longitud"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="15dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sendbutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="55dp"
+                        android:layout_marginStart="25dp"
+                        android:onClick="onSaveButton"
+                        android:text="Guardar"
+                        android:textColor="@color/buttonsMain"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/colorPrimaryDark"
+                        app:cornerRadius="?attr/dialogPreferredPadding" />
+
+                    <Button
+                        android:id="@+id/viewListButton"
+                        android:layout_width="150dp"
+                        android:layout_height="55dp"
+                        android:layout_marginStart="55dp"
+                        android:onClick="onCancelButton"
+                        android:text="Cancelar"
+                        android:textColor="@color/buttonsMain"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/colorPrimaryDark"
+                        app:cornerRadius="?attr/dialogPreferredPadding" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
