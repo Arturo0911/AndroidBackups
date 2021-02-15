@@ -119,13 +119,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:orientation="horizontal">
+
                     <com.google.android.material.button.MaterialButton
+                        style="?attr/borderlessButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="onClickCrateAccount"
                         android:text="@string/no_count"
-                        android:textColor="@color/colorPrimaryDark"
-                        style="?attr/borderlessButtonStyle"
-                        />
+                        android:textColor="@color/colorPrimaryDark" />
                     <com.google.android.material.button.MaterialButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

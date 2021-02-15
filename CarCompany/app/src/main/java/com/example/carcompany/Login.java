@@ -3,6 +3,7 @@ package com.example.carcompany;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -38,6 +39,11 @@ public class Login extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(this, "Error by: "+e.toString(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void onClickCrateAccount(View view){
+        Intent intent = new Intent(Login.this, Registro.class);
+        startActivity(intent);
     }
 
 

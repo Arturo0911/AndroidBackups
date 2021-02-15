@@ -66,6 +66,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/empleadoCedula"
+                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
@@ -170,6 +171,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/empleadoClave"
+                        android:inputType="textPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
@@ -186,6 +188,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/empleadoClave2"
+                        android:inputType="textPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
@@ -239,6 +242,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
+                        android:onClick="getLocation"
                         android:text="Obtener latitud y longitud"
                         android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold" />

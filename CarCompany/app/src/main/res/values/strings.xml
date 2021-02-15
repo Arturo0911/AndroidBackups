@@ -7,4 +7,5 @@
     <string name="login_button">LOGIN</string>
     <string name="no_count">create an account</string>
     <string name="forgot_password">Forgot password</string>
+    <string name="title_activity_geolocation">Map</string>
 </resources>
