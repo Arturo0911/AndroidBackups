@@ -124,6 +124,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/empleadoCorreo"
+                            android:inputType="textEmailAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             />
@@ -135,11 +136,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginBottom="15dp"
-                        android:hint="Choose the color"
+                        android:hint="Celular"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/empleadoCelular"
+                            android:inputType="phone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             />

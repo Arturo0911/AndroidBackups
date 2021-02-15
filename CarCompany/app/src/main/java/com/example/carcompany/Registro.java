@@ -8,9 +8,12 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -23,6 +26,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.carcompany.basededatos.AdminSQLite;
 import com.example.carcompany.process.Credential;
 import com.example.carcompany.process.Empleado;
 import com.example.carcompany.process.ListControl;
@@ -57,6 +61,8 @@ public class Registro extends AppCompatActivity {
 
     private Credential credential = null;
 
+
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -82,10 +88,31 @@ public class Registro extends AppCompatActivity {
         String usuario = empleadoUsuario.getText().toString();
         String clave = empleadoClave.getText().toString();
         String clave2 = empleadoClave2.getText().toString();
+        String latitud = empleadoLatitud.getText().toString();
+        String longitud = empleadoLongitud.getText().toString();
 
         if (chequearCamposVacios(cedula, nombres, apellidos, correo, celular, usuario, clave, clave2)){
             if (credential.verificarCedula(cedula) && clave.equalsIgnoreCase(clave2)) {
                 Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
+
+                AdminSQLite admin = new AdminSQLite(Registro.this, "Empleados", null, 1);
+                SQLiteDatabase data = admin.getWritableDatabase();
+                ContentValues register = new ContentValues();
+
+                register.put("cedula", cedula);
+                register.put("nombres", nombres);
+                register.put("apellidos", apellidos);
+                register.put("correo", correo);
+                register.put("celular", celular);
+                register.put("usuario", usuario);
+                register.put("clave", clave);
+                register.put("latitud", latitud);
+                register.put("longitud", longitud);
+
+                data.insert("usuario", null, register);
+                data.close();
+
+                limpiarCampos(empleadoCedula, nombresEmpleado, empleadoApellido, empleadoCorreo, empleadoCelular, empleadoUsuario, empleadoClave, empleadoClave2);
             } else {
                 Toast.makeText(this, "Cedula incorrecta, ingrese una cedula correcta", Toast.LENGTH_SHORT).show();
             }
@@ -103,18 +130,8 @@ public class Registro extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(@NonNull Location location) {
-                //Toast.makeText(Geolocation.this, "location: "+location.toString(), Toast.LENGTH_SHORT).show();
-                /*Empleado.latitude = String.valueOf( location.getLatitude());
-                Empleado.longitude = String.valueOf( location.getLongitude());*/
-
                 empleadoLatitud.setText( String.valueOf(location.getLatitude()));
                 empleadoLongitud.setText( String.valueOf(location.getLongitude()));
-
-                //Intent intent = new Intent(Registro.this, Registro.class);
-                //finishActivity();
-                //
-                //startActivity(intent);
-
 
             }
 
@@ -177,13 +194,6 @@ public class Registro extends AppCompatActivity {
         empleadoClave2 = (TextInputEditText) findViewById(R.id.empleadoClave2);
         empleadoLatitud = (TextInputEditText) findViewById(R.id.empleadoLatitud);
         empleadoLongitud = (TextInputEditText) findViewById(R.id.empleadoLongitud);
-
-
-        /*empleadoLatitud.setText( Empleado.latitude);
-        empleadoLongitud.setText( Empleado.longitude);
-        getLocation = (MaterialButton) findViewById(R.id.getLocation);*/
-
-
 
 
     }
