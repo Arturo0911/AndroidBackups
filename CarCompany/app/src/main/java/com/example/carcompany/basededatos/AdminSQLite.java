@@ -28,7 +28,7 @@ public class AdminSQLite  extends SQLiteOpenHelper {
             private TextInputEditText empleadoLatitud;
             private TextInputEditText empleadoLongitud;
         * */
-        dataBaseMain.execSQL("CREATE TABLE usuario (id INTEGER primary key AUTOINCREMENT, cedula TEXT, nombres TEXT, " +
+        dataBaseMain.execSQL("CREATE TABLE user_employee (id INTEGER primary key AUTOINCREMENT, cedula TEXT, nombres TEXT, " +
                 "apellidos TEXT, correo TEXT, celular TEXT, usuario TEXT, " +
                 "clave TEXT, latitud TEXT, longitud TEXT )");
 

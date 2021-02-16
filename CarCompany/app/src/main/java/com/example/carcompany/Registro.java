@@ -95,7 +95,7 @@ public class Registro extends AppCompatActivity {
             if (credential.verificarCedula(cedula) && clave.equalsIgnoreCase(clave2)) {
                 Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
 
-                AdminSQLite admin = new AdminSQLite(Registro.this, "Empleados", null, 1);
+                AdminSQLite admin = new AdminSQLite(Registro.this, "UsuariosEmpleados", null, 1);
                 SQLiteDatabase data = admin.getWritableDatabase();
                 ContentValues register = new ContentValues();
 
@@ -109,7 +109,7 @@ public class Registro extends AppCompatActivity {
                 register.put("latitud", latitud);
                 register.put("longitud", longitud);
 
-                data.insert("usuario", null, register);
+                data.insert("user_employee", null, register);
                 data.close();
 
                 limpiarCampos(empleadoCedula, nombresEmpleado, empleadoApellido, empleadoCorreo, empleadoCelular, empleadoUsuario, empleadoClave, empleadoClave2);
@@ -194,6 +194,7 @@ public class Registro extends AppCompatActivity {
         empleadoClave2 = (TextInputEditText) findViewById(R.id.empleadoClave2);
         empleadoLatitud = (TextInputEditText) findViewById(R.id.empleadoLatitud);
         empleadoLongitud = (TextInputEditText) findViewById(R.id.empleadoLongitud);
+
 
 
     }
