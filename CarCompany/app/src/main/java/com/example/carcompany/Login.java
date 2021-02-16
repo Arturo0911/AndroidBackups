@@ -27,6 +27,11 @@ public class Login extends AppCompatActivity {
     private TextInputEditText userField;
     private TextInputEditText passField;
 
+    public void claveRecover(View view){
+        Intent intent = new Intent(Login.this, RecuperarClave.class);
+        startActivity(intent);
+    }
+
     public void initLoginButton(View view){
 
         userField = (TextInputEditText) findViewById(R.id.userField);

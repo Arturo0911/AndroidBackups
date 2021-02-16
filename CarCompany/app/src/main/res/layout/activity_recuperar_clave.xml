@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".RecuperarClave">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,9 +26,8 @@
                     android:layout_width="256dp"
                     android:layout_height="135dp"
                     android:layout_marginStart="70dp"
-                    app:srcCompat="@drawable/loginauto"
                     android:scaleType="centerCrop"
-                    />
+                    app:srcCompat="@drawable/loginauto" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -40,8 +39,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="El mejor servicio para tu vehículo"
-                        android:layout_marginStart="25dp"
+                        android:text="Recuperar clave"
+                        android:layout_marginStart="45dp"
                         android:textAppearance="?attr/textAppearanceHeadline6"
                         />
 
@@ -63,17 +62,17 @@
                         app:boxStrokeColor="@color/colorPrimaryDark"
                         android:textColorHint="@color/colorPrimaryDark"
                         app:hintTextColor="@color/colorPrimaryDark"
-                        android:hint="@string/user_field"
+                        android:hint="Ingresa tu cedula"
 
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/userField"
+                            android:id="@+id/cedulaRecover"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            />
+                            android:layout_height="49dp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
 
                         android:layout_width="350dp"
@@ -81,19 +80,41 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginBottom="15dp"
                         app:boxStrokeColor="@color/colorPrimaryDark"
-                        android:hint="@string/pass_field"
-                        app:startIconTint="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorPrimaryDark"
                         app:hintTextColor="@color/colorPrimaryDark"
+                        android:hint="Ingresa tu nueva clave"
+
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/passField"
+                            android:id="@+id/claveRecover"
                             android:inputType="textPassword"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            />
+                            android:layout_height="49dp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        android:layout_width="350dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="15dp"
+                        app:boxStrokeColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        app:hintTextColor="@color/colorPrimaryDark"
+                        android:hint="Repite tu nueva clave"
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/claveRecover2"
+                            android:inputType="textPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="49dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
 
 
                 </LinearLayout>
@@ -104,12 +125,24 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/loginButton"
-                        android:layout_width="350dp"
+                        android:id="@+id/buttonRecoverySend"
+                        android:layout_width="130dp"
                         android:layout_height="55dp"
                         android:layout_marginStart="25dp"
-                        android:onClick="initLoginButton"
-                        android:text="@string/login_button"
+                        android:onClick="onRecoverPassword"
+                        android:text="Recuperar"
+                        android:textColor="@color/buttonsMain"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/colorPrimaryDark"
+                        app:cornerRadius="?attr/dialogPreferredPadding" />
+
+                    <Button
+                        android:id="@+id/buttonRecoveryCancel"
+                        android:layout_width="120dp"
+                        android:layout_height="55dp"
+                        android:layout_marginStart="60dp"
+                        android:onClick="onCancelButton"
+                        android:text="cancelar"
                         android:textColor="@color/buttonsMain"
                         android:textStyle="bold"
                         app:backgroundTint="@color/colorPrimaryDark"
@@ -120,23 +153,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:orientation="horizontal">
-
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="onClickCrateAccount"
-                        android:text="Registrarse"
-                        android:textColor="@color/colorPrimaryDark" />
-
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="35dp"
-                        android:onClick="claveRecover"
-                        android:text="recuperar clave"
-                        android:textColor="@color/colorPrimaryDark" />
                 </LinearLayout>
             </LinearLayout>
 
